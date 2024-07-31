@@ -79,7 +79,8 @@ public abstract class AbstractTemplateEngine {
                 filePath = filePath + File.separator + file.getPackageName().replaceAll("\\.", StringPool.BACK_SLASH + File.separator);
             }
             Function<TableInfo, String> formatNameFunction = file.getFormatNameFunction();
-            String fileName = filePath + File.separator + (null != formatNameFunction ? formatNameFunction.apply(tableInfo) : entityName) + file.getFileName();
+            // String fileName = filePath + File.separator + (null != formatNameFunction ? formatNameFunction.apply(tableInfo) : entityName) + file.getFileName();
+            String fileName = filePath + File.separator + file.getFileName();
             outputFile(new File(fileName), objectMap, file.getTemplatePath(), file.isFileOverride());
         });
     }
